@@ -1,0 +1,1 @@
+{"name":"Vehicle Detector","short_name":"Detector","description":"Auto-scan vehicle numbers using camera","start_url":"/","display":"standalone","background_color":"#1a1a1a","theme_color":"#3b82f6","lang":"en","scope":"/","icons":[{"src":"/pwa-192x192.png","sizes":"192x192","type":"image/png"},{"src":"/pwa-512x512.png","sizes":"512x512","type":"image/png"}]}
