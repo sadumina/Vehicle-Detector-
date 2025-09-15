@@ -18,3 +18,23 @@ if ("serviceWorker" in navigator) {
     );
   });
 }
+
+import { registerSW } from "virtual:pwa-register";
+
+registerSW({
+  onNeedRefresh() {},
+  onOfflineReady() {
+    console.log("✅ App ready to work offline!");
+  },
+});
+
+
+
+registerSW({
+  onNeedRefresh() {
+    console.log("🔄 New version available");
+  },
+  onOfflineReady() {
+    console.log("✅ Ready to work offline");
+  },
+});

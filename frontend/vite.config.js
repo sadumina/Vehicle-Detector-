@@ -8,29 +8,30 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       workbox: {
-        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // ✅ allow up to 10MB
+        maximumFileSizeToCacheInBytes: 5000000, // 5 MB
       },
       manifest: {
-        name: "Vehicle Gate System",
-        short_name: "VehicleGate",
-        description: "Factory Vehicle Entry & Exit Tracking",
-        theme_color: "#0d0d0d",
-        background_color: "#0d0d0d",
+        name: "Vehicle Detector",
+        short_name: "Detector",
+        description: "Auto-scan vehicle numbers using camera",
+        theme_color: "#3b82f6",
+        background_color: "#1a1a1a",
         display: "standalone",
-        orientation: "portrait",
+        scope: "/",
+        start_url: "/",
         icons: [
           {
-            src: "/icon-192.png",
+            src: "/pwa-192x192.png",
             sizes: "192x192",
-            type: "image/png",
+            type: "image/png"
           },
           {
-            src: "/icon-512.png",
+            src: "/pwa-512x512.png",
             sizes: "512x512",
-            type: "image/png",
-          },
-        ],
-      },
-    }),
-  ],
+            type: "image/png"
+          }
+        ]
+      }
+    })
+  ]
 });
