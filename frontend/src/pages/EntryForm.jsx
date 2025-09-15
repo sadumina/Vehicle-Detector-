@@ -70,7 +70,7 @@ export default function EntryForm() {
     }
   };
 
-  // 💾 Save entry
+  // 💾 Save entry (fixed)
   const handleSubmit = async (plate = vehicleNo, auto = false) => {
     if (!plate) {
       alert("⚠️ Please enter a vehicle number");
@@ -80,7 +80,11 @@ export default function EntryForm() {
     setLoading(true);
     try {
       const res = await fetchVehicles();
-      const existing = res.data.find(
+
+      // Normalize response into an array
+      const vehicles = Array.isArray(res.data) ? res.data : [res.data];
+
+      const existing = vehicles.find(
         (v) => v.vehicleNo === plate && !v.outTime
       );
 
