@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://vehicle-detector-new.onrender.com/api/vehicles" });
+const API = axios.create({ baseURL: "https://vehicle-detector-remake.onrender.com" });
 
 export const fetchVehicles = () => API.get("/");
 export const createEntry = (vehicleNo) => API.post("/entry", { vehicleNo });
