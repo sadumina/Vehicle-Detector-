@@ -15,7 +15,7 @@ function Navbar() {
       {/* Top Navbar */}
       <Header style={{ display: "flex", alignItems: "center", background: "#000" }}>
         <div style={{ color: "white", fontSize: "20px", fontWeight: "bold", marginRight: "2rem" }}>
-          🚚 Vehicle Gate System
+          Vehicle Gate System {/* ✅ Removed 🚚 */}
         </div>
         <Menu
           theme="dark"

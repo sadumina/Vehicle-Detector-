@@ -6,10 +6,6 @@ import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
 import "jspdf/dist/polyfills.es.js";
 
-// Load a Google font like Roboto (with unicode support)
-const doc = new jsPDF();
-doc.setFont("helvetica", "normal"); // safe
-
 export default function Dashboard() {
   const [vehicles, setVehicles] = useState([]);
 
@@ -53,7 +49,7 @@ export default function Dashboard() {
     const doc = new jsPDF();
     doc.setFont("helvetica", "bold");
     doc.setFontSize(18);
-    doc.text("🚚 Vehicle Report", 14, 20);
+    doc.text("Vehicle Report", 14, 20); // ✅ Removed 🚚
 
     autoTable(doc, {
       startY: 35,
@@ -95,7 +91,7 @@ export default function Dashboard() {
             marginBottom: "1.5rem",
           }}
         >
-          <h2 style={{ color: "#00ff88", margin: 0 }}>📊 Vehicle Dashboard</h2>
+          <h2 style={{ color: "#00ff88", margin: 0 }}>Vehicle Dashboard</h2>
           <button
             onClick={() => alert("TODO: Export all vehicles as PDF/CSV")}
             style={{
@@ -156,46 +152,45 @@ export default function Dashboard() {
                 <td style={{ padding: "12px" }}>{detectVehicleType(v.vehicleNo)}</td>
                 <td style={{ padding: "12px" }}>{calcDuration(v.inTime, v.outTime)}</td>
                 <td style={{ textAlign: "center", padding: "12px" }}>
-  <div
-    style={{
-      display: "grid",
-      gridTemplateColumns: "1fr 1fr",
-      gap: "0.5rem",
-      justifyContent: "center",
-      alignItems: "center",
-    }}
-  >
-    {!v.outTime && (
-      <button
-        onClick={() => handleExit(v.id)}
-        style={{
-          background: "#ff4444",
-          color: "white",
-          padding: "0.4rem 0.8rem",
-          borderRadius: "6px",
-          border: "none",
-          cursor: "pointer",
-        }}
-      >
-        Mark Exit
-      </button>
-    )}
-    <button
-      onClick={() => generatePDF(v)}
-      style={{
-        background: "#00bcd4",
-        color: "white",
-        padding: "0.4rem 0.8rem",
-        borderRadius: "6px",
-        border: "none",
-        cursor: "pointer",
-      }}
-    >
-      📄 PDF
-    </button>
-  </div>
-</td>
-
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr 1fr",
+                      gap: "0.5rem",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {!v.outTime && (
+                      <button
+                        onClick={() => handleExit(v.id)}
+                        style={{
+                          background: "#ff4444",
+                          color: "white",
+                          padding: "0.4rem 0.8rem",
+                          borderRadius: "6px",
+                          border: "none",
+                          cursor: "pointer",
+                        }}
+                      >
+                        Mark Exit
+                      </button>
+                    )}
+                    <button
+                      onClick={() => generatePDF(v)}
+                      style={{
+                        background: "#00bcd4",
+                        color: "white",
+                        padding: "0.4rem 0.8rem",
+                        borderRadius: "6px",
+                        border: "none",
+                        cursor: "pointer",
+                      }}
+                    >
+                      PDF
+                    </button>
+                  </div>
+                </td>
               </tr>
             ))}
           </tbody>
